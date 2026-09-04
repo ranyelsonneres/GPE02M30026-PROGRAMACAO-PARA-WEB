@@ -38,3 +38,7 @@ function calcularValorAbastecimento(precoCombustivel, litros){
 
 let litros = document.getElementById("litros");
 litros.addEventListener("input", atualizarValor);
+
+//colocar o resultado no formato de moeda R$ (com duas casas decimais)
+//retornar uma mensagem de valor inválido, caso o valor seja menor que 0;
+//criar uma função para realizar a formatação da moeda;
