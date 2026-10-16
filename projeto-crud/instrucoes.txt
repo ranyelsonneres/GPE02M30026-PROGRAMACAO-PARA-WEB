@@ -1,0 +1,17 @@
+package.json: npm init
+instalar o express: npm install express
+instalar a lib do mysql: npm install mysql2
+rodar o projeto: node server.js
+
+Diretório: projeto-crud/
+	server.js
+	db.js
+	routes/
+		api.js
+	public/
+		index.html
+		style.css
+		app.js
+		
+instalar o nodemon: npm install -g nodemon
+utilizar: npx nodemon server.js
