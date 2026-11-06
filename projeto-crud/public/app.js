@@ -4,9 +4,7 @@
 //elementos HTML
 const form = document.getElementById('user-form');
 const userlist = document.getElementById("user-list");
-
-carregarUsuarios(); //chama a função para listar todos os usuários cadastrados no banco
-
+carregarUsuarios();
 //funções
 
 //tratar o formulário
@@ -26,6 +24,7 @@ function cadastrarUsuario(nome, email){
     })
     .then(() =>{
         form.reset(); //limpar os dados do formulário
+        carregarUsuarios();
     })
 };
 
@@ -36,7 +35,7 @@ function carregarUsuarios(){
     .then(res => res.json()) //recebe os dados do banco em JSON
     .then(data =>{ //manipular os dados recebidos: objeto
         userlist.innerHTML = ''; //limpar o conteúdo
-        data.foreach(user =>{
+        data.forEach(user =>{
             const li = document.createElement('li');
             li.innerHTML = `${user.nome} - ${user.email}`
             userlist.appendChild(li);
