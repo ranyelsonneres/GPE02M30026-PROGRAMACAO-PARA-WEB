@@ -37,8 +37,31 @@ function carregarUsuarios(){
         userlist.innerHTML = ''; //limpar o conteúdo
         data.forEach(user =>{
             const li = document.createElement('li');
-            li.innerHTML = `${user.nome} - ${user.email}`
+            li.innerHTML = `${user.nome} - ${user.email}
+            <button onclick="editarUsuario(${user.id})">Editar</button>
+            <button>Excluir</button>
+            `
             userlist.appendChild(li);
         })
     })
+};
+
+function editarUsuario(id){
+    const nome = prompt("nome: ");
+    const email = prompt("email: ");
+    
+    //requisição ao backend:
+    fetch(`/api/users/editar/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({nome, email}) //converter o objeto
+    })
+    .then(()=>{
+        carregarUsuarios();
+    })
+
+}
+
+function excluirUsuario(id){
+    //lógica para a exclusão
 }
