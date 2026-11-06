@@ -39,7 +39,7 @@ function carregarUsuarios(){
             const li = document.createElement('li');
             li.innerHTML = `${user.nome} - ${user.email}
             <button onclick="editarUsuario(${user.id})">Editar</button>
-            <button>Excluir</button>
+            <button onclick="excluirUsuario(${user.id})">Excluir</button>
             `
             userlist.appendChild(li);
         })
@@ -64,4 +64,14 @@ function editarUsuario(id){
 
 function excluirUsuario(id){
     //lógica para a exclusão
+    const confirmacao = confirm("Tem certeza?");
+    if(!confirmacao){
+        return;
+    }
+    fetch(`/api/users/excluir/${id}`, {
+        method: 'DELETE'
+    })
+    .then(()=>{
+        carregarUsuarios();
+    })
 }
