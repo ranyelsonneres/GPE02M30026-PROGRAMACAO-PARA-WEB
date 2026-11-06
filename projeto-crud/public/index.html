@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Cadastro</title>
+    <title>Página Inicial</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Sistema de Cadastro de Usuários</h1>
+    <form id="user-form">
+        <label>Nome:</label>
+        <input type="text" id="nome" placeholder="Nome" required>
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Email" required>
+        <button type="submit">Salvar</button>
+    </form>
+    <h1>Lista de usuários cadastrados:</h1>
+    <ul id="user-list"></ul>
+
     <script src="app.js"></script>
 </body>
 </html>
